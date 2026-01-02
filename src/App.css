@@ -1,42 +1,480 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #808000, #006400);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem 0 2rem;
+  background: white;
+  color: #808000;
+  border-bottom: #A29B9B 0.5px solid;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none;
+}
+
+.logo img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-subtitle {
+  font-size: 0.7rem;
+  color: #808000;
+  margin-top: 0.1rem;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.header-nav a {
+  color: #808000;
+  text-decoration: none;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  flex: 1;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: navy;
+}
+
+.search-icon-mobile {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.header-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+}
+
+.content {
+  flex: 1;
   padding: 2rem;
+  background: white;
+  color: black;
+}
+
+.page {
+  padding: 1rem;
+}
+
+.banner {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: -4rem;
+  height: 650px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.banner-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.banner-overlay p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.shop-now-btn {
+  background: #808000;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.shop-now-btn:hover {
+  background: #6b8e23;
+}
+
+.highlighted-flowers h2, .highlighted-pots h2 {
+  margin: 0;
+  color: #808000;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2rem;
+  padding-top: 3rem;
+}
+.flowers-header, .pots-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.highlighted-flowers h2, .highlighted-pots h2 {
+  margin: 0;
+  color: #808000;
+}
+
+/* Updated see-more button styles */
+.see-more {
+  color: #808000; /* Olive green text color */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid #808000; /* Olive green border */
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 3rem;
+}
+
+.see-more:hover {
+  background: #f8f8f8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add arrow styling */
+.see-more::after {
+  content: '>';
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+.flowers-grid, .pots-grid {
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 0 1rem;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.flowers-grid::-webkit-scrollbar, .pots-grid::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* Updated flower card styles */
+.flower-card, .pot-card {
+  min-width: 280px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  padding: 0;
+  text-align: center;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: 0 0.5rem;
+  overflow: hidden;
+}
+
+.flower-card img, .pot-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.flower-card img:hover, .pot-card img:hover {
+  transform: scale(1.03);
+}
+
+/* Product info styling */
+.flower-card .product-info, .pot-card .product-info {
+  padding: 1rem;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.flower-card h3, .pot-card h3 {
+  margin: 0;
+  color: #808000;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.flower-card p, .pot-card p {
+  margin: 0;
+  font-weight: bold;
+  color: #006400;
+  font-size: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1rem 0 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hamburger {
+    display: block;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .close-btn {
+    display: block;
+  }
+
+  .search-bar {
+    display: none;
+  }
+
+  .search-bar.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .search-icon-mobile {
+    display: block;
+  }
+
+  .banner-overlay {
+    right: 5%;
+    max-width: 90%;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .banner {
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: -4rem;
+    margin-bottom: 1rem;
+  }
+
+  .flowers-grid, .pots-grid {
+    padding: 0 0.5rem;
+  }
+
+  .flower-card, .pot-card {
+    min-width: 220px;
+  }
+  
+  .flower-card img, .pot-card img {
+    height: 200px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .flower-card, .pot-card {
+    min-width: 180px;
   }
+  
+  .flower-card img, .pot-card img {
+    height: 160px;
+  }
+} 
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.card {
-  padding: 2em;
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
 }
 
-.read-the-docs {
-  color: #888;
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-content li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.modal-content li:hover {
+  background: #f0f0f0;
+}
+
+.modal-content li span {
+  color: #808000;
+}
+
+/* About section styles */
+.about-section {
+  padding: 4rem 2rem;
+  background: white;
+  color: black;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  color: #808000;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about-content p {
+  color: #333;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
