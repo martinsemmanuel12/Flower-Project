@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Modal from './components/Modal';
 import Dashboard from './pages/Dashboard';
 import './App.css';
+import Footer from './components/Footer';
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,6 +21,8 @@ function App() {
       <main className="content">
         <Dashboard />
       </main>
+
+      <Footer />
     </div>
   );
 }
